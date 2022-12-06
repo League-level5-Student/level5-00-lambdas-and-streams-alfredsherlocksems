@@ -42,16 +42,24 @@ public class LambdaMethods {
 		}, "word");
 		//4. Call the printCustonMessage method using a lambda so that the String prints with a period in between each character.
 		printCustomMessage((s) -> {
+			String[] a = s.split("");
+			StringBuilder n = new StringBuilder();
+			for (int i = 0; i < a.length; i++) {
+				a[i] = a[i] + ".";
+				n.append(a[i]);
+			}
 			
+			System.out.println(n.toString());
 		}, "word");
 		//5. Call the printCustonMessage method using a lambda so that the String prints without any vowels.
 		printCustomMessage((s) -> {
 			String[] arr = s.split("");
-			Arrays.stream(arr).filter((letter) -> !letter.equals("a") && !letter.equals("o") && !letter.equals("u") && !letter.equals("e")
-					&& !letter.equals("i"));
+			
 			StringBuilder a = new StringBuilder();
 			for (int i = 0; i < arr.length; i++) {
+				if (!arr[i].equals("a") && !arr[i].equals("o") && !arr[i].equals("u")) {
 				a.append(arr[i]);
+				}
 			}
 			System.out.println(a.toString());
 		}, "word");
